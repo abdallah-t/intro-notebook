@@ -9,9 +9,11 @@ COPY ./assets/fonts/SpaceMono-Regular.ttf /tmp/fonts/
 COPY ./assets/fonts/Vazirmatn-Black.ttf /tmp/fonts/
 COPY ./assets/fonts/Vazirmatn-Regular.ttf /tmp/fonts/
 
-# Install the fonts by copying them to the system font directory
+# Install the fonts by copying them to the system font directory as a non-root user
+USER root
 RUN cp /tmp/fonts/* /usr/share/fonts/ && \
     fc-cache -fv
+USER manimuser
 
 # Clean up the temporary directory
 RUN rm -rf /tmp/fonts

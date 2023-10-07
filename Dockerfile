@@ -5,9 +5,9 @@ FROM docker.io/manimcommunity/manim:v0.17.3
 RUN mkdir -p /tmp/fonts
 
 # Copy the fonts from your local directory to the temporary directory
-COPY assets/fonts/SpaceMono-Regular.ttf /tmp/fonts/
-COPY assets/fonts/Vazirmatn-Black.ttf /tmp/fonts/
-COPY assets/fonts/Vazirmatn-Regular.ttf /tmp/fonts/
+COPY ./assets/fonts/SpaceMono-Regular.ttf /tmp/fonts/
+COPY ./assets/fonts/Vazirmatn-Black.ttf /tmp/fonts/
+COPY ./assets/fonts/Vazirmatn-Regular.ttf /tmp/fonts/
 
 # Install the fonts by copying them to the system font directory
 RUN cp /tmp/fonts/* /usr/share/fonts/ && \
